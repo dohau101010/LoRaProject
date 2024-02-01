@@ -22,48 +22,44 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/style1.css" />
   </head>
 
   <body>
-    <div class="grid-container">
-      <!-- Header -->
-      <header class="header">
-        <!-- <div class="menu-icon" onclick="openSidebar()">
+    <!-- Header -->
+    <header class="header">
+      <!-- <div class="menu-icon" onclick="openSidebar()">
           <span class="material-icons-outlined">menu</span>
         </div> -->
 
-        <div class="header-img">
-          <img
-            src="/img/logoute.jpg"
-            alt="header-img"
-            width="100%"
-            height="70px"
-          />
-        </div>
+      <div class="header-img">
+        <img
+          src="/img/logoute.jpg"
+          alt="header-img"
+          width="100%"
+          height="70px"
+        />
+      </div>
 
-        <div class="header-text">
-          <strong
-            >HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY AND EDUCATION</strong
-          >
-        </div>
+      <div class="header-text">
+        <strong>HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY AND EDUCATION</strong>
+      </div>
 
-        <div class="header-left">
-          <label>
-            <input type="checkbox" />
-            <span class="check"></span>
-          </label>
-        </div>
+      <div class="header-left">
+        <span class="material-icons-outlined">search</span>
+      </div>
 
-        <div class="header-right">
-          <span class="material-icons-outlined">notifications</span>
-          <span class="material-icons-outlined">email</span>
-          <span class="material-icons-outlined">account_circle</span>
-        </div>
-      </header>
-      <!-- End Header -->
+      <div class="header-right">
+        <span class="material-icons-outlined">notifications</span>
+        <span class="material-icons-outlined">email</span>
+        <span class="material-icons-outlined">account_circle</span>
+      </div>
+    </header>
+    <!-- End Header -->
 
-      <!-- Sidebar -->
+    <!-- Sidebar -->
+
+    <main class="main-container">
       <aside id="sidebar">
         <div class="sidebar-title">
           <div class="sidebar-brand">
@@ -74,7 +70,7 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="#">
+            <a href="/index.html">
               <span class="material-icons-outlined">dashboard</span> Dashboard
             </a>
           </li>
@@ -111,74 +107,63 @@
           </li>
         </ul>
       </aside>
-      <!-- End Sidebar -->
 
-      <!-- Main -->
-      <!-- SHOW THE SPECIFICATIONS OF THE WEATHER IN NUMBER -->
-      <main class="main-container">
-        <div class="main-title">
-          <p class="font-weight-bold">WELCOME TO OUR DASHBOARD</p>
+      <div class="image-but">
+        <div class="image-peri">
+          <img
+            src="/img/ledon.jpg"
+            alt="led-device"
+            id="led_01"
+            style="width: 20%"
+          />
+          <img
+            src="/img/fanon.jpg"
+            alt="fan-device"
+            id="fan_01"
+            style="width: 10%"
+          />
+          <img
+            src="/img/air-on.jpg"
+            alt="air-device"
+            id="air_01"
+            style="width: 20%"
+          />
         </div>
-
-        <div class="main-cards">
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">TEMPERATURE</p>
-
-              <span class="material-symbols-outlined text-red">
-                device_thermostat
-              </span>
-            </div>
-            <span class="text-primary font-weight-bold" id="tempt">37</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">HUMIDITY</p>
-              <span class="material-symbols-outlined text-orange"
-                >humidity_mid</span
-              >
-            </div>
-            <span class="text-primary font-weight-bold" id="humi">70</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">RAINFALL</p>
-              <span class="material-symbols-outlined text-green">rainy</span>
-            </div>
-            <span class="text-primary font-weight-bold" id="rain">500</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">LIGHT</p>
-              <span class="material-symbols-outlined text-red">light_mode</span>
-            </div>
-            <span class="text-primary font-weight-bold" id="light">85%</span>
-          </div>
+        <div class="button-peri">
+          <button id="btnon_01">
+            <img src="/img/btnon.png" alt="buton" style="width: 80%" />
+          </button>
+          <button id="btnoff_01">
+            <img src="/img/btnoff.png" alt="butoff" style="width: 80%" />
+          </button>
+          <button id="btnon_02">
+            <img src="/img/btnon.png" alt="fan-on" style="width: 80%" />
+          </button>
+          <button id="btnoff_02">
+            <img src="/img/btnoff.png" alt="fan-off" style="width: 80%" />
+          </button>
+          <button id="btnon_03">
+            <img src="/img/btnon.png" alt="air-on" style="width: 80%" />
+          </button>
+          <button id="btnoff_03">
+            <img src="/img/btnoff.png" alt="air-off" style="width: 80%" />
+          </button>
         </div>
+      </div>
+    </main>
 
-        <!-- DRAW THE CHART TO SHOW ALL SPECIFICATION OF THE WEATHER -->
+    <!-- End Sidebar -->
 
-        <div class="charts">
-          <div class="charts-card">
-            <p class="chart-title">Rainfall Nowadays</p>
-            <div id="bar-chart"></div>
-          </div>
-
-          <div class="charts-card">
-            <p class="chart-title">Temperature & Humidity Today</p>
-            <div id="area-chart"></div>
-          </div>
-        </div>
-      </main>
-      <!-- End Main -->
-    </div>
+    <!-- Main -->
+    <!-- SHOW THE SPECIFICATIONS OF THE WEATHER IN NUMBER -->
+    <footer class="footer-container">
+      <div class="footer-title">
+        <!-- <img src="/img/header_image.jpg" alt="header_image" id="image-footer" /> -->
+        <p><strong>LET CONTROL YOUR ALL DEVICE HERE</strong></p>
+      </div>
+    </footer>
 
     <!-- Scripts -->
-    <!-- ApexCharts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
@@ -199,6 +184,6 @@
       firebase.analytics();
     </script>
     <!-- Custom JS -->
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts1.js"></script>
   </body>
 </html>

@@ -1,29 +1,50 @@
-// SIDEBAR TOGGLE
+var database = firebase.database();
 
-let sidebarOpen = false;
-const sidebar = document.getElementById('sidebar');
+var rainChart = [0, 0, 0, 0, 0];
+var temptChart = [10, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var humidChart = [10, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-function openSidebar() {
-  if (!sidebarOpen) {
-    sidebar.classList.add('sidebar-responsive');
-    sidebarOpen = true;
-  }
-}
 
-function closeSidebar() {
-  if (sidebarOpen) {
-    sidebar.classList.remove('sidebar-responsive');
-    sidebarOpen = false;
-  }
-}
+// database.ref("/Humi").on("value", function(snapshot){
+//   var humi = snapshot.val();
+//   document.getElementById("humi").innerHTML = humi;
 
-// ---------- CHARTS ----------
+//   humidChart.unshift(humi);
+//   humidChart.splice(10);
+
+//   areaChart.updateSeries([{
+//     name: 'Temperature',
+//     data: temptChart
+//   }, {
+//     name: 'Humidity',
+//     data: humidChart
+//   }]);
+// });
+
+// database.ref("/Rain").on("value", function(snapshot){
+//   var rain = snapshot.val();
+//   document.getElementById("rain").innerHTML = rain;
+
+  
+//   // rainChart.unshift(rain);
+//   // rainChart.splice(5);
+
+//   // barChart.updateSeries([{
+//   //   data: rainChart
+//   // }]);
+
+// });
+
+database.ref("/Light").on("value", function(snapshot){
+  var light = snapshot.val();
+  document.getElementById("light").innerHTML = light;
+});
 
 // BAR CHART
 const barChartOptions = {
   series: [
     {
-      data: [10, 8, 6, 4, 2],
+      data: rainChart
     },
   ],
   chart: {
@@ -33,7 +54,7 @@ const barChartOptions = {
       show: false,
     },
   },
-  colors: ['#246dec', '#cc3c43', '#367952', '#f5b74f', '#4f35a1'],
+  colors: ['#0C2D57', '#cc3c43', '#367952', '#f5b74f', '#4f35a1'],
   plotOptions: {
     bar: {
       distributed: true,
@@ -49,16 +70,15 @@ const barChartOptions = {
     show: false,
   },
   xaxis: {
-    categories: ['Laptop', 'Phone', 'Monitor', 'Headphones', 'Camera'],
+    categories: ['Today', 'Yesterday', '2 day ago', '3 day ago', '4 day ago'],
   },
   yaxis: {
     title: {
-      text: 'Count',
+      text: 'Rainfall (mm)',
     },
   },
 };
-
-const barChart = new ApexCharts(
+var barChart = new ApexCharts(
   document.querySelector('#bar-chart'),
   barChartOptions
 );
@@ -68,12 +88,12 @@ barChart.render();
 const areaChartOptions = {
   series: [
     {
-      name: 'Purchase Orders',
-      data: [31, 40, 28, 51, 42, 109, 100],
+      name: 'Temperature',
+      data: temptChart,
     },
     {
-      name: 'Sales Orders',
-      data: [11, 32, 45, 32, 34, 52, 41],
+      name: 'Humidity',
+      data: [12, 15, 26, 32, 14, 78, 85, 12, 13, 14],
     },
   ],
   chart: {
@@ -90,21 +110,23 @@ const areaChartOptions = {
   stroke: {
     curve: 'smooth',
   },
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+  labels: ['Live', '1h', '2h', '3h', '4h', '5h', '6h', '7h' ,'8h', '9h'],
   markers: {
     size: 0,
   },
   yaxis: [
     {
       title: {
-        text: 'Purchase Orders',
+        text: 'Temperature (°C)',
       },
+      max: 90,
     },
     {
       opposite: true,
       title: {
-        text: 'Sales Orders',
+        text: 'Humidity (%)',
       },
+      max: 100,
     },
   ],
   tooltip: {
@@ -118,3 +140,109 @@ const areaChart = new ApexCharts(
   areaChartOptions
 );
 areaChart.render();
+
+//-----------------------------------RAIN PROCESSING--------------------------------------
+function updateRainChart() {
+  // Lấy giá trị mới từ Firebase cho rain
+  database.ref("/Rain").once("value").then(function(snapshot){
+    var rain = snapshot.val();
+    document.getElementById("rain").innerHTML = rain;
+
+    // Thêm giá trị mới vào mảng
+    rainChart.unshift(rain);
+
+    // Giữ số lượng phần tử trong mảng rainChart không vượt quá 5
+    if (rainChart.length > 5) {
+      rainChart.splice(5);
+    }
+
+    // Cập nhật giá trị cho biểu đồ Rainfall
+    barChart.updateSeries([{
+      data: rainChart
+    }]);
+  });
+}
+// Lắng nghe sự kiện từ Firebase cho rain liên tục
+database.ref("/Rain").on("value", function(snapshot){
+  var rain = snapshot.val();
+  document.getElementById("rain").innerHTML = rain;
+});
+
+//----------------------------------------------------------------------------------------
+
+//-----------------------------------TEMPT%HUMI PROCESSING--------------------------------------
+function updateTemptHumiChart() {
+  // Lấy giá trị mới từ Firebase cho rain
+  database.ref("/Tempt").once("value").then(function(snapshot){
+    var tempt = snapshot.val();
+    document.getElementById("tempt").innerHTML = tempt;
+
+    // Thêm giá trị mới vào mảng
+    temptChart.unshift(tempt);
+
+    // Giữ số lượng phần tử trong mảng temptChart không vượt quá 5
+    if (temptChart.length > 10) {
+      temptChart.splice(10);
+    }
+    // Cập nhật giá trị cho biểu đồ Rainfall
+    areaChart.updateSeries([{
+      name: 'Temperature',
+      data: temptChart
+    }, {
+      name: 'Humidity',
+      data: humidChart
+    }]);
+  });
+ 
+  database.ref("/Humi").once("value").then(function(snapshot){
+    var humi = snapshot.val();
+    document.getElementById("humi").innerHTML = humi;
+
+    // Thêm giá trị mới vào mảng
+    humidChart.unshift(humi);
+
+    // Giữ số lượng phần tử trong mảng temptChart không vượt quá 5
+    if (humidChart.length > 10) {
+      humidChart.splice(10);
+    }
+    // Cập nhật giá trị cho biểu đồ Rainfall
+    areaChart.updateSeries([{
+      name: 'Temperature',
+      data: temptChart
+    }, {
+      name: 'Humidity',
+      data: humidChart
+    }]);
+  });
+}
+
+
+// Lắng nghe sự kiện từ Firebase cho rain liên tục
+database.ref("/Rain").on("value", function(snapshot){
+  var rain = snapshot.val();
+  document.getElementById("rain").innerHTML = rain;
+});
+
+database.ref("/Tempt").on("value", function(snapshot){
+  var tempt = snapshot.val();
+  document.getElementById("tempt").innerHTML = tempt;
+});
+database.ref("/Humi").on("value", function(snapshot){
+  var humi = snapshot.val();
+  document.getElementById("humi").innerHTML = humi;
+});
+//----------------------------------------------------------------------------------------
+
+// Cài đặt lặp cập nhật mỗi 5 giây
+setInterval(function () {
+  updateRainChart();
+}, 60*60*1000);
+
+setInterval(function () {
+  updateTemptHumiChart();
+}, 1000);
+
+updateRainChart();
+updateTemptHumiChart();
+
+// -------------------------------------------------------------
