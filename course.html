@@ -20,9 +20,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/style1.css" />
+    <link rel="stylesheet" href="./css/style3.css" />
   </head>
 
   <body>
@@ -91,7 +94,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="./course.html" >
               <span class="material-icons-outlined">shopping_cart</span> Course
             </a>
           </li>
@@ -109,59 +112,60 @@
       </aside>
 
       <div class="image-but">
-        <div class="image-peri">
-          <img
-            src="./img/ledon.jpg"
-            alt="led-device"
-            id="led_01"
-            style="width: 20%"
-          />
-          <img
-            src="./img/fanon.jpg"
-            alt="fan-device"
-            id="fan_01"
-            style="width: 10%"
-          />
-          <img
-            src="./img/air-on.jpg"
-            alt="air-device"
-            id="air_01"
-            style="width: 20%"
-          />
+        <div class="skill">
+          <div class="main-top">
+            <h1>Watch more...</h1>
+            <i class="fas fa-user-cog"></i>
+          </div>
+
+          <div class="main-skills">
+            <div class="card" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
+              <h3>STM32</h3>
+              <iframe src="https://www.youtube.com/embed/72Kagl-Xd3k" frameborder="0" allowfullscreen></iframe>
+            </div>
+          
+            <div class="card" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
+              <h3>FPGA</h3>
+              <iframe src="https://www.youtube.com/embed/6wmWjQ5M_FI" frameborder="0" allowfullscreen></iframe>
+            </div>
+          
+            <div class="card" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
+              <h3>PIC</h3>
+              <iframe src="https://www.youtube.com/embed/WeYOnIeVcIw" frameborder="0" allowfullscreen></iframe>
+            </div>
+          
+            <div class="card" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
+              <h3>DSP</h3>
+              <iframe src="https://www.youtube.com/embed/Bi6QPjpFUF0" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
         </div>
-        <div class="button-peri">
-          <button id="btnon_01">
-            <img src="./img/btnon.png" alt="buton" style="width: 80%" />
-          </button>
-          <button id="btnoff_01">
-            <img src="./img/btnoff.png" alt="butoff" style="width: 80%" />
-          </button>
-          <button id="btnon_02">
-            <img src="./img/btnon.png" alt="fan-on" style="width: 80%" />
-          </button>
-          <button id="btnoff_02">
-            <img src="./img/btnoff.png" alt="fan-off" style="width: 80%" />
-          </button>
-          <button id="btnon_03">
-            <img src="./img/btnon.png" alt="air-on" style="width: 80%" />
-          </button>
-          <button id="btnoff_03">
-            <img src="./img/btnoff.png" alt="air-off" style="width: 80%" />
-          </button>
-        </div>
+
+          <div class="courses">
+            <h1 class="title-course">Some available course!</h1>
+            <div class="course-box">
+              <div class="course">
+                <div class="box">
+                  <h3>HTML</h3>
+                  <p>Hay lắm</p>
+                  <a href="https://www.w3schools.com/html/default.asp" target="_blank"><button>Learn Now</button></a>
+                  <i class="fab fa-html5 html"></i>
+                </div>
+                <div class="box">
+                  <h3>CSS</h3>
+                  <p>Học đi</p>
+                 <a href="https://www.w3schools.com/css/default.asp" target="_blank"> <button>Learn Now</button></a>
+                  <i class="fab fa-css3-alt css"></i>
+                </div>
+                <div class="box">
+                  <h3>JavaScript</h3>
+                  <p>Rồi chán</p>
+                 <a href="https://www.w3schools.com/js/default.asp" target="_blank"> <button>Learn Now</button></a>
+                  <i class="fab fa-js-square js"></i>
+                </div>
+          </div>
       </div>
     </main>
-
-    <!-- End Sidebar -->
-
-    <!-- Main -->
-    <!-- SHOW THE SPECIFICATIONS OF THE WEATHER IN NUMBER -->
-    <footer class="footer-container">
-      <div class="footer-title">
-        <!-- <img src="/img/header_image.jpg" alt="header_image" id="image-footer" /> -->
-        <p><strong>LET CONTROL YOUR ALL DEVICE HERE</strong></p>
-      </div>
-    </footer>
 
     <!-- Scripts -->
 
@@ -185,5 +189,14 @@
     </script>
     <!-- Custom JS -->
     <script src="./js/scripts1.js"></script>
+    <script>
+      function zoomIn(element) {
+  element.classList.add('zoomed'); // Thêm lớp 'zoomed' để phóng to
+}
+
+ function zoomOut(element) {
+  element.classList.remove('zoomed'); // Loại bỏ lớp 'zoomed' để trở về kích thước ban đầu
+}
+    </script>
   </body>
 </html>

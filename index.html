@@ -22,7 +22,7 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
   <body>
@@ -35,7 +35,7 @@
 
         <div class="header-img">
           <img
-            src="/img/logoute.jpg"
+            src="./img/logoute.jpg"
             alt="header-img"
             width="100%"
             height="70px"
@@ -79,7 +79,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="/control.html">
+            <a href="./control.html">
               <span class="material-icons-outlined">inventory_2</span> Control
             </a>
           </li>
@@ -95,7 +95,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="./course.html">
               <span class="material-icons-outlined">shopping_cart</span> Course
             </a>
           </li>
@@ -105,7 +105,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="./setting.html">
               <span class="material-icons-outlined">settings</span> Settings
             </a>
           </li>
@@ -118,6 +118,23 @@
       <main class="main-container">
         <div class="main-title">
           <p class="font-weight-bold">WELCOME TO OUR DASHBOARD</p>
+          <div id="time">
+            <script>
+              function dongho() {
+                var time = new Date();
+                var gio = time.getHours();
+                var phut = time.getMinutes();
+                var giay = time.getSeconds();
+                if (gio < 10) gio = "0" + gio;
+                if (phut < 10) phut = "0" + phut;
+                if (giay < 10) giay = "0" + giay;
+                document.getElementById("time").innerHTML =
+                  gio + ":" + phut + ":" + giay;
+                setTimeout("dongho()", 1000);
+              }
+              dongho();
+            </script>
+          </div>
         </div>
 
         <div class="main-cards">
@@ -199,6 +216,6 @@
       firebase.analytics();
     </script>
     <!-- Custom JS -->
-    <script src="js/scripts.js"></script>
+    <script src="./js/scripts.js"></script>
   </body>
 </html>

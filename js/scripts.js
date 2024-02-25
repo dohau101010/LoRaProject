@@ -222,18 +222,38 @@ database.ref("/Rain").on("value", function(snapshot){
   var rain = snapshot.val();
   document.getElementById("rain").innerHTML = rain;
 });
-
+var audio = new Audio('mp3/warn.mp3');
 database.ref("/Tempt").on("value", function(snapshot){
   var tempt = snapshot.val();
   document.getElementById("tempt").innerHTML = tempt;
+  database.ref("/Threshold/Tempt_th").on("value", function(snapshot){
+  var tempt_th = snapshot.val();
+
+    if (tempt > tempt_th) {
+      alert("Warning: Temperature is higher than threshold!");
+      document.getElementById("tempt").style.color = "red";
+      document.getElementById("tempt").style.fontSize = "25px"
+      document.getElementById("tempt").style.animation = "blink 1s infinite"; 
+      audio.play();
+
+    } else
+    {
+      document.getElementById("tempt").style.color = "#47474a";
+      document.getElementById("tempt").style.fontSize = "22px"
+      document.getElementById("tempt").style.animation = "none";
+    }
+
+  });
 });
 database.ref("/Humi").on("value", function(snapshot){
   var humi = snapshot.val();
   document.getElementById("humi").innerHTML = humi;
 });
+
 //----------------------------------------------------------------------------------------
 
 // Cài đặt lặp cập nhật mỗi 5 giây
+
 setInterval(function () {
   updateRainChart();
 }, 60*60*1000);
@@ -246,3 +266,4 @@ updateRainChart();
 updateTemptHumiChart();
 
 // -------------------------------------------------------------
+

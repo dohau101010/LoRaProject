@@ -44,3 +44,33 @@ btnOff3.onclick = function () {
     Air: 0,
   });
 };
+
+//------------------------------------------lam 1 lan khi load lai-------------------
+var hasExecuted = false;
+if (!hasExecuted) {
+
+  firebase.database().ref("/Led").on("value", function(snapshot){
+    var led = snapshot.val().Led;
+    if(led===1)
+    {
+      document.getElementById("led_01").src = "/img/ledon.jpg";
+    } else  document.getElementById("led_01").src = "/img/ledoff.jpg";
+  });
+
+  firebase.database().ref("/Fan").on("value", function(snapshot){
+    var fan = snapshot.val().Fan;
+    if(fan==1)
+    {
+      document.getElementById("fan_01").src = "/img/fanon.jpg";
+    } else  document.getElementById("fan_01").src = "/img/fanoff.jpg";
+  });
+
+  firebase.database().ref("/Air").on("value", function(snapshot){
+    var air = snapshot.val().Air;
+    if(air==1)
+    {
+      document.getElementById("air_01").src = "/img/air-on.jpg";
+    } else document.getElementById("air_01").src = "/img/air-off.jpg";
+  });
+  hasExecuted = true;
+}

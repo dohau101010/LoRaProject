@@ -22,7 +22,7 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/style1.css" />
+    <link rel="stylesheet" href="./css/style2.css" />
   </head>
 
   <body>
@@ -91,7 +91,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="./course.html">
               <span class="material-icons-outlined">shopping_cart</span> Course
             </a>
           </li>
@@ -108,46 +108,55 @@
         </ul>
       </aside>
 
-      <div class="image-but">
-        <div class="image-peri">
-          <img
-            src="./img/ledon.jpg"
-            alt="led-device"
-            id="led_01"
-            style="width: 20%"
-          />
-          <img
-            src="./img/fanon.jpg"
-            alt="fan-device"
-            id="fan_01"
-            style="width: 10%"
-          />
-          <img
-            src="./img/air-on.jpg"
-            alt="air-device"
-            id="air_01"
-            style="width: 20%"
-          />
+      <div class="setting">
+        <div>
+          <div class="head-image">
+            <img src="./img/setting.png" alt="" style="width: 20%" />
+          </div>
         </div>
-        <div class="button-peri">
-          <button id="btnon_01">
-            <img src="./img/btnon.png" alt="buton" style="width: 80%" />
-          </button>
-          <button id="btnoff_01">
-            <img src="./img/btnoff.png" alt="butoff" style="width: 80%" />
-          </button>
-          <button id="btnon_02">
-            <img src="./img/btnon.png" alt="fan-on" style="width: 80%" />
-          </button>
-          <button id="btnoff_02">
-            <img src="./img/btnoff.png" alt="fan-off" style="width: 80%" />
-          </button>
-          <button id="btnon_03">
-            <img src="./img/btnon.png" alt="air-on" style="width: 80%" />
-          </button>
-          <button id="btnoff_03">
-            <img src="./img/btnoff.png" alt="air-off" style="width: 80%" />
-          </button>
+
+        <div class="te-hu">
+          <p class="tempt-title">TEMPT:</p>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="scrollable-range"
+          />
+          <p id="scroll-value">50</p>
+
+          <p class="humi-title">HUMI:</p>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="scrollable-range1"
+          />
+          <p id="scroll-value1">60</p>
+        </div>
+
+        <div class="bu-pi">
+          <p class="bu-title">DUST:</p>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="scrollable-range2"
+          />
+          <p id="scroll-value2">70</p>
+
+          <p class="bat-title">BATT:</p>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="scrollable-range3"
+          />
+          <p id="scroll-value3">90</p>
         </div>
       </div>
     </main>
@@ -159,7 +168,7 @@
     <footer class="footer-container">
       <div class="footer-title">
         <!-- <img src="/img/header_image.jpg" alt="header_image" id="image-footer" /> -->
-        <p><strong>LET CONTROL YOUR ALL DEVICE HERE</strong></p>
+        <p><strong>SET THE THRESHOLD VALUE HERE</strong></p>
       </div>
     </footer>
 
@@ -184,6 +193,6 @@
       firebase.analytics();
     </script>
     <!-- Custom JS -->
-    <script src="./js/scripts1.js"></script>
+    <script src="./js/script2.js"></script>
   </body>
 </html>
