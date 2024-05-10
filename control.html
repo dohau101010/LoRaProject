@@ -79,74 +79,232 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">fact_check</span> Contact
+            <a href="./history.html">
+              <span class="material-icons-outlined">poll</span> History
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">add_shopping_cart</span>
-              More Information
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="./course.html">
               <span class="material-icons-outlined">shopping_cart</span> Course
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">poll</span> Register
+            <a href="./station 1.html">
+              <span class="material-icons-outlined">dashboard</span> LoRa
+              Station 1
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="./station 2.html">
+              <span class="material-icons-outlined">dashboard</span> LoRa
+              Station 2
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="./setting.html">
               <span class="material-icons-outlined">settings</span> Settings
             </a>
           </li>
         </ul>
       </aside>
-
       <div class="image-but">
-        <div class="image-peri">
-          <img
-            src="./img/ledon.jpg"
-            alt="led-device"
-            id="led_01"
-            style="width: 20%"
-          />
-          <img
-            src="./img/fanon.jpg"
-            alt="fan-device"
-            id="fan_01"
-            style="width: 10%"
-          />
-          <img
-            src="./img/air-on.jpg"
-            alt="air-device"
-            id="air_01"
-            style="width: 20%"
-          />
+        <div class="room1">
+          <p id="title">Device</p>
+          <div class="image">
+            <img id="lam" src="./img/lam_1.png" alt="" style="width: 15%" />
+            <img id="fan" src="./img/fan_on.png" alt="" style="width: 15%" />
+            <img
+              id="clean"
+              src="./img/clean_off.png"
+              alt=""
+              style="width: 15%"
+            />
+            <img id="air" src="./img/air_off.png" alt="" style="width: 15%" />
+          </div>
+          <div class="name_device">
+            <pre
+              id="title"
+            ><strong>   Device 1        Device 2         Device 3          Device 4</strong></pre>
+          </div>
+
+          <p class="controlx">Control</p>
+          <div class="button_all">
+            <input type="range" min="1" max="5" value="1" class="lamp_roll" />
+            <button>
+              <img
+                id="fan_but"
+                src="./img/fanb1.png"
+                alt=""
+                style="width: 40%"
+              />
+            </button>
+            <button id="clean_button">
+              <img
+                id="clean_but"
+                src="./img/btn_on.png"
+                alt=""
+                style="width: 40%"
+              />
+            </button>
+            <button>
+              <img
+                id="air_but"
+                src="./img/air_boff.png"
+                alt=""
+                style="width: 40%"
+              />
+            </button>
+          </div>
+          <p id="titlex">Features</p>
+
+          <button id="def_but">DEFAULT</button>
+          <button id="all_on">TURN ALL</button>
+          <button id="all_off">TIMER</button>
         </div>
-        <div class="button-peri">
-          <button id="btnon_01">
-            <img src="./img/btnon.png" alt="buton" style="width: 80%" />
-          </button>
-          <button id="btnoff_01">
-            <img src="./img/btnoff.png" alt="butoff" style="width: 80%" />
-          </button>
-          <button id="btnon_02">
-            <img src="./img/btnon.png" alt="fan-on" style="width: 80%" />
-          </button>
-          <button id="btnoff_02">
-            <img src="./img/btnoff.png" alt="fan-off" style="width: 80%" />
-          </button>
-          <button id="btnon_03">
-            <img src="./img/btnon.png" alt="air-on" style="width: 80%" />
-          </button>
-          <button id="btnoff_03">
-            <img src="./img/btnoff.png" alt="air-off" style="width: 80%" />
-          </button>
+
+        <div class="room2">
+          <div class="title_room2">THRESHOLD VALUES</div>
+          <div class="tempt_roll">
+            <img
+              id="thre_img"
+              src="./img/tempt.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-range"
+            />
+            <p id="scroll-value">50</p>
+          </div>
+
+          <div class="humi_roll">
+            <img
+              id="thre_img"
+              src="./img/humi.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-range1"
+            />
+            <p id="scroll-value1">50</p>
+          </div>
+
+          <div class="bu_roll">
+            <img
+              id="thre_img"
+              src="./img/dust.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-range2"
+            />
+            <p id="scroll-value2">70</p>
+          </div>
+
+          <div class="soil_roll">
+            <img
+              id="thre_img"
+              src="./img/CO.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value=""
+              class="scrollable-range3"
+            />
+            <p id="scroll-value3">90</p>
+          </div>
+          <div class="status">
+            <img
+              id="stt_img"
+              src="./img/manual.png"
+              alt=""
+              style="width: 20%"
+            />
+            <span id="mode">MANUAL MODE</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="frames-container">
+            <div class="frame">
+              <h2>LAMP</h2>
+              <div class="option">
+                <label for="lampTurnOnTime">Time On:</label>
+                <input type="time" id="lampTurnOnTime" name="lampTurnOnTime" />
+              </div>
+              <div class="option">
+                <label for="lampTurnOffTime">Time Off:</label>
+                <input
+                  type="time"
+                  id="lampTurnOffTime"
+                  name="lampTurnOffTime"
+                />
+              </div>
+            </div>
+
+            <div class="frame">
+              <h2>FAN</h2>
+              <div class="option">
+                <label for="fanTurnOnTime">Time On:</label>
+                <input type="time" id="fanTurnOnTime" name="fanTurnOnTime" />
+              </div>
+              <div class="option">
+                <label for="fanTurnOffTime">Time Off:</label>
+                <input type="time" id="fanTurnOffTime" name="fanTurnOffTime" />
+              </div>
+            </div>
+            <div class="frame">
+              <h2>VACUUM</h2>
+              <div class="option">
+                <label for="vacuumTurnOnTime">Time On:</label>
+                <input
+                  type="time"
+                  id="vacuumTurnOnTime"
+                  name="vacuumTurnOnTime"
+                />
+              </div>
+              <div class="option">
+                <label for="vacuumTurnOffTime">Time Off:</label>
+                <input
+                  type="time"
+                  id="vacuumTurnOffTime"
+                  name="vacuumTurnOffTime"
+                />
+              </div>
+            </div>
+            <div class="frame">
+              <h2>AIR COND</h2>
+              <div class="option">
+                <label for="airTurnOnTime">Time On:</label>
+                <input type="time" id="airTurnOnTime" name="airTurnOnTime" />
+              </div>
+              <div class="option">
+                <label for="airTurnOffTime">Time Off:</label>
+                <input type="time" id="airTurnOffTime" name="airTurnOffTime" />
+              </div>
+            </div>
+          </div>
+          <button id="confirmTimer">Finish</button>
         </div>
       </div>
     </main>

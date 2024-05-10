@@ -1,8 +1,9 @@
 var database = firebase.database();
 
-var rainChart = [0, 0, 0, 0, 0];
-var temptChart = [10, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var humidChart = [10, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var lightChart = [30, 25, 10, 25, 5];
+var rainChart = [15, 10, 5, 25, 20];
+var temptChart = [30, 20, 30, 45, 40, 20, 25, 35, 35, 40];
+var humidChart = [80, 90, 80, 80, 90, 95, 70, 70, 80, 90];
 
 // database.ref("/Humi").on("value", function(snapshot){
 //   var humi = snapshot.val();
@@ -33,7 +34,7 @@ var humidChart = [10, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 // });
 
-database.ref("/Light").on("value", function (snapshot) {
+database.ref("/Trạm 2/Nồng độ CO").on("value", function (snapshot) {
   var light = snapshot.val();
   document.getElementById("light").innerHTML = light;
 });
@@ -42,7 +43,12 @@ database.ref("/Light").on("value", function (snapshot) {
 const barChartOptions = {
   series: [
     {
+      name: "Dust",
       data: rainChart,
+    },
+    {
+      name: "CO",
+      data: lightChart,
     },
   ],
   chart: {
@@ -52,30 +58,41 @@ const barChartOptions = {
       show: false,
     },
   },
-  colors: ["#0C2D57", "#cc3c43", "#367952", "#f5b74f", "#4f35a1"],
+  colors: ["#0C2D57", "#f5b74f"], // Chỉ sử dụng hai màu trong mảng này
   plotOptions: {
     bar: {
       distributed: true,
       borderRadius: 4,
       horizontal: false,
-      columnWidth: "40%",
+      columnWidth: "50%",
     },
   },
   dataLabels: {
     enabled: false,
   },
   legend: {
-    show: false,
+    show: true, // Hiển thị huy hiệu
   },
   xaxis: {
     categories: ["Today", "Yesterday", "2 day ago", "3 day ago", "4 day ago"],
   },
-  yaxis: {
-    title: {
-      text: "Rainfall (mm)",
+  yaxis: [
+    {
+      title: {
+        text: " P2.5 (ug/m3)",
+      },
+      max: 30,
     },
-  },
+    {
+      opposite: true,
+      title: {
+        text: "CO gas (ppm)",
+      },
+      max: 50,
+    },
+  ],
 };
+
 var barChart = new ApexCharts(
   document.querySelector("#bar-chart"),
   barChartOptions
@@ -117,7 +134,7 @@ const areaChartOptions = {
       title: {
         text: "Temperature (°C)",
       },
-      max: 90,
+      max: 50,
     },
     {
       opposite: true,
@@ -143,7 +160,7 @@ areaChart.render();
 function updateRainChart() {
   // Lấy giá trị mới từ Firebase cho rain
   database
-    .ref("/Rain")
+    .ref("/Trạm 2/Bụi")
     .once("value")
     .then(function (snapshot) {
       var rain = snapshot.val();
@@ -162,11 +179,40 @@ function updateRainChart() {
         {
           data: rainChart,
         },
+        {
+          data: lightChart,
+        },
+      ]);
+    });
+
+  database
+    .ref("/Trạm 2/Nồng độ CO")
+    .once("value")
+    .then(function (snapshot) {
+      var light = snapshot.val();
+      document.getElementById("light").innerHTML = light;
+
+      // Thêm giá trị mới vào mảng
+      lightChart.unshift(light);
+
+      // Giữ số lượng phần tử trong mảng rainChart không vượt quá 5
+      if (lightChart.length > 5) {
+        lightChart.splice(5);
+      }
+
+      // Cập nhật giá trị cho biểu đồ Rainfall
+      barChart.updateSeries([
+        {
+          data: rainChart,
+        },
+        {
+          data: lightChart,
+        },
       ]);
     });
 }
 // Lắng nghe sự kiện từ Firebase cho rain liên tục
-database.ref("/Rain").on("value", function (snapshot) {
+database.ref("/Trạm 2/Bụi").on("value", function (snapshot) {
   var rain = snapshot.val();
   document.getElementById("rain").innerHTML = rain;
 });
@@ -177,7 +223,7 @@ database.ref("/Rain").on("value", function (snapshot) {
 function updateTemptHumiChart() {
   // Lấy giá trị mới từ Firebase cho rain
   database
-    .ref("/Tempt")
+    .ref("/Trạm 2/Nhiệt độ")
     .once("value")
     .then(function (snapshot) {
       var tempt = snapshot.val();
@@ -204,7 +250,7 @@ function updateTemptHumiChart() {
     });
 
   database
-    .ref("/Humi")
+    .ref("/Trạm 2/Độ ẩm không khí")
     .once("value")
     .then(function (snapshot) {
       var humi = snapshot.val();
@@ -232,7 +278,7 @@ function updateTemptHumiChart() {
 }
 
 // Lắng nghe sự kiện từ Firebase cho rain liên tục
-database.ref("/Rain").on("value", function (snapshot) {
+database.ref("/Trạm 2/Bụi").on("value", function (snapshot) {
   var rain = snapshot.val();
   document.getElementById("rain").innerHTML = rain;
 });
@@ -240,10 +286,10 @@ database.ref("/Rain").on("value", function (snapshot) {
 var audio = new Audio("mp3/warn.mp3");
 var hasPushedToHistory1 = false;
 
-database.ref("/Tempt").on("value", function (snapshot) {
+database.ref("/Trạm 2/Nhiệt độ").on("value", function (snapshot) {
   var tempt = snapshot.val();
   document.getElementById("tempt").innerHTML = tempt;
-  database.ref("/Threshold/Tempt_th").on("value", function (snapshot) {
+  database.ref("/Ngưỡng 2/Nhiệt độ").on("value", function (snapshot) {
     var tempt_th = snapshot.val();
 
     if (tempt > tempt_th && !hasPushedToHistory) {
@@ -257,10 +303,8 @@ database.ref("/Tempt").on("value", function (snapshot) {
         now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 
       // Push dữ liệu vào thư mục 'History' trên Firebase
-      firebase.database().ref("History").push({
-        time: time,
+      firebase.database().ref("/History 2").set({
         mess: "Nhiệt độ cao!",
-        value: tempt,
       });
 
       // Đặt cờ đã push lên Firebase
@@ -276,10 +320,10 @@ database.ref("/Tempt").on("value", function (snapshot) {
 var audio = new Audio("mp3/warn.mp3");
 var hasPushedToHistory = false;
 
-database.ref("/Humi").on("value", function (snapshot) {
+database.ref("/Trạm 2/Độ ẩm không khí").on("value", function (snapshot) {
   var humi = snapshot.val();
   document.getElementById("humi").innerHTML = humi;
-  database.ref("/Threshold/Humi_th").on("value", function (snapshot) {
+  database.ref("/Ngưỡng 2/Độ ẩm không khí").on("value", function (snapshot) {
     var humi_th = snapshot.val();
 
     if (humi < humi_th && !hasPushedToHistory) {
@@ -293,10 +337,8 @@ database.ref("/Humi").on("value", function (snapshot) {
         now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 
       // Push dữ liệu vào thư mục 'History' trên Firebase
-      firebase.database().ref("History").push({
-        time: time,
+      firebase.database().ref("/History 2").set({
         mess: "Độ ẩm thấp!",
-        value: humi,
       });
 
       // Đặt cờ đã push lên Firebase
@@ -319,7 +361,7 @@ setInterval(function () {
 
 setInterval(function () {
   updateTemptHumiChart();
-}, 1000);
+}, 60 * 60 * 1000);
 
 updateRainChart();
 updateTemptHumiChart();

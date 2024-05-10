@@ -22,7 +22,7 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/style2.css" />
+    <link rel="stylesheet" href="./css/setting.css" />
   </head>
 
   <body>
@@ -31,7 +31,6 @@
       <!-- <div class="menu-icon" onclick="openSidebar()">
           <span class="material-icons-outlined">menu</span>
         </div> -->
-
       <div class="header-img">
         <img
           src="./img/logoute.jpg"
@@ -64,7 +63,7 @@
         <div class="sidebar-title">
           <div class="sidebar-brand">
             <span class="material-icons-outlined">home</span>
-            <span class="brand_name">Lycoris Radiata</span>
+            <span class="brand_name">LORA PROJECT FOR SMART SYSTEM</span>
           </div>
         </div>
 
@@ -80,14 +79,8 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">fact_check</span> Contact
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">add_shopping_cart</span>
-              More Information
+            <a href="./history.html">
+              <span class="material-icons-outlined">poll</span> History
             </a>
           </li>
           <li class="sidebar-list-item">
@@ -96,8 +89,15 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">poll</span> Register
+            <a href="./station 1.html">
+              <span class="material-icons-outlined">dashboard</span> LoRa
+              Station 1
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="./station 2.html">
+              <span class="material-icons-outlined">dashboard</span> LoRa
+              Station 2
             </a>
           </li>
           <li class="sidebar-list-item">
@@ -108,55 +108,166 @@
         </ul>
       </aside>
 
-      <div class="setting">
-        <div>
-          <div class="head-image">
-            <img src="./img/setting.png" alt="" style="width: 20%" />
+      <div class="image-but">
+        <div class="room2">
+          <div class="title_room2">THRESHOLD VALUES</div>
+          <div class="tempt_roll">
+            <img
+              id="thre_img"
+              src="./img/tempt.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-rangen"
+            />
+            <p id="scroll-value">50</p>
+          </div>
+
+          <div class="humi_roll">
+            <img
+              id="thre_img"
+              src="./img/humi.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-range1n"
+            />
+            <p id="scroll-value1">50</p>
+          </div>
+
+          <div class="bu_roll">
+            <img
+              id="thre_img"
+              src="./img/dust.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-range2n"
+            />
+            <p id="scroll-value2">70</p>
+          </div>
+
+          <div class="soil_roll">
+            <img
+              id="thre_img"
+              src="./img/CO.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value=""
+              class="scrollable-range3n"
+            />
+            <p id="scroll-value3">90</p>
+          </div>
+          <div class="status">
+            <img
+              id="stt_img"
+              src="./img/manual.png"
+              alt=""
+              style="width: 20%"
+            />
+            <span id="mode">MANUAL MODE</span>
           </div>
         </div>
 
-        <div class="te-hu">
-          <p class="tempt-title">TEMPT:</p>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            class="scrollable-range"
-          />
-          <p id="scroll-value">50</p>
+        <!-- TRAM 2 -->
+        <div class="room2">
+          <div class="title_room2">THRESHOLD VALUES</div>
+          <div class="tempt_roll">
+            <img
+              id="thre_img"
+              src="./img/tempt.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-range"
+            />
+            <p id="scroll-valuen">50</p>
+          </div>
 
-          <p class="humi-title">HUMI:</p>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            class="scrollable-range1"
-          />
-          <p id="scroll-value1">60</p>
-        </div>
+          <div class="humi_roll">
+            <img
+              id="thre_img"
+              src="./img/humi.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-range1"
+            />
+            <p id="scroll-value1n">50</p>
+          </div>
 
-        <div class="bu-pi">
-          <p class="bu-title">DUST:</p>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            class="scrollable-range2"
-          />
-          <p id="scroll-value2">70</p>
+          <div class="bu_roll">
+            <img
+              id="thre_img"
+              src="./img/dust.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value="50"
+              class="scrollable-range2"
+            />
+            <p id="scroll-value2n">70</p>
+          </div>
 
-          <p class="bat-title">BATT:</p>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            class="scrollable-range3"
-          />
-          <p id="scroll-value3">90</p>
+          <div class="soil_roll">
+            <img
+              id="thre_img"
+              src="./img/CO.png"
+              alt=""
+              style="width: 17%; height: 17%"
+            />
+            <input
+              type="range"
+              min="10"
+              max="99"
+              value=""
+              class="scrollable-range3"
+            />
+            <p id="scroll-value3n">90</p>
+          </div>
+          <div class="status">
+            <img
+              id="stt_img"
+              src="./img/manual.png"
+              alt=""
+              style="width: 20%"
+            />
+            <span id="mode">MANUAL MODE</span>
+          </div>
         </div>
       </div>
     </main>
@@ -168,7 +279,7 @@
     <footer class="footer-container">
       <div class="footer-title">
         <!-- <img src="/img/header_image.jpg" alt="header_image" id="image-footer" /> -->
-        <p><strong>SET THE THRESHOLD VALUE HERE</strong></p>
+        <p><strong>ĐỖ TRUNG HẬU 21161121 - NGUYỄN MINH KHOA AN 21161099</strong></p>
       </div>
     </footer>
 
@@ -179,20 +290,20 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
     <script>
       const firebaseConfig = {
-        apiKey: "AIzaSyCxpe8JFxwAXJaAa4wM7nKcUq65_tykKow",
-        authDomain: "iots-project.firebaseapp.com",
-        databaseURL: "https://iots-project-default-rtdb.firebaseio.com",
-        projectId: "iots-project",
-        storageBucket: "iots-project.appspot.com",
-        messagingSenderId: "453029774962",
-        appId: "1:453029774962:web:da2331f59dd6bdf3e3a4eb",
-        measurementId: "G-81L0QQ90F3",
+        apiKey: "AIzaSyAP5G-sGFyEJxKdTVrfnq2c7N14XYSwfIE",
+        authDomain: "he-thong-lora.firebaseapp.com",
+        databaseURL: "https://he-thong-lora-default-rtdb.firebaseio.com",
+        projectId: "he-thong-lora",
+        storageBucket: "he-thong-lora.appspot.com",
+        messagingSenderId: "85555223573",
+        appId: "1:85555223573:web:4923b0a40d462d3bb3021c",
+        measurementId: "G-3LED26R7F8",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
     <!-- Custom JS -->
-    <script src="./js/script2.js"></script>
+    <script src="./js/scr_setting.js"></script>
   </body>
 </html>

@@ -25,7 +25,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/style3.css" />
+    <link rel="stylesheet" href="./css/style2.css" />
   </head>
 
   <body>
@@ -94,12 +94,14 @@
           </li>
           <li class="sidebar-list-item">
             <a href="./station 1.html">
-              <span class="material-icons-outlined">dashboard</span> LoRa Station 1
+              <span class="material-icons-outlined">dashboard</span> LoRa
+              Station 1
             </a>
           </li>
           <li class="sidebar-list-item">
             <a href="./station 2.html">
-              <span class="material-icons-outlined">dashboard</span> LoRa Station 2
+              <span class="material-icons-outlined">dashboard</span> LoRa
+              Station 2
             </a>
           </li>
           <li class="sidebar-list-item">
@@ -110,63 +112,73 @@
         </ul>
       </aside>
 
-      <div class="image-but">
-        <div class="skill">
-          <div class="main-top">
-            <h1>Watch more...</h1>
-            <i class="fas fa-user-cog"></i>
-          </div>
-
-          <div class="main-skills">
-            <div class="card" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
-              <h3>STM32</h3>
-              <iframe src="https://www.youtube.com/embed/72Kagl-Xd3k" frameborder="0" allowfullscreen></iframe>
-            </div>
-          
-            <div class="card" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
-              <h3>FPGA</h3>
-              <iframe src="https://www.youtube.com/embed/6wmWjQ5M_FI" frameborder="0" allowfullscreen></iframe>
-            </div>
-          
-            <div class="card" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
-              <h3>PIC</h3>
-              <iframe src="https://www.youtube.com/embed/WeYOnIeVcIw" frameborder="0" allowfullscreen></iframe>
-            </div>
-          
-            <div class="card" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
-              <h3>DSP</h3>
-              <iframe src="https://www.youtube.com/embed/Bi6QPjpFUF0" frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
+      <div class="chart">
+        <div class="chart1">
+          <p class="chart1-title">Usage Frequency</p>
+          <div id="bar-chart"></div>
         </div>
 
-          <div class="courses">
-            <h1 class="title-course">Some available course!</h1>
-            <div class="course-box">
-              <div class="course">
-                <div class="box">
-                  <h3>HTML</h3>
-                  <p>Hay lắm</p>
-                  <a href="https://www.w3schools.com/html/default.asp" target="_blank"><button>Learn Now</button></a>
-                  <i class="fab fa-html5 html"></i>
-                </div>
-                <div class="box">
-                  <h3>CSS</h3>
-                  <p>Học đi</p>
-                 <a href="https://www.w3schools.com/css/default.asp" target="_blank"> <button>Learn Now</button></a>
-                  <i class="fab fa-css3-alt css"></i>
-                </div>
-                <div class="box">
-                  <h3>JavaScript</h3>
-                  <p>Rồi chán</p>
-                 <a href="https://www.w3schools.com/js/default.asp" target="_blank"> <button>Learn Now</button></a>
-                  <i class="fab fa-js-square js"></i>
-                </div>
-          </div>
+        <div class="chart2">
+          <p class="chart2-title">Consumed Power</p>
+          <div id="pie-chart"></div>
+        </div>
+      </div>
+
+      <div class="leftScreen">
+        <div class="calendar">
+          <header>
+            <h3></h3>
+            <nav>
+              <button id="prev"></button>
+              <button id="next"></button>
+            </nav>
+          </header>
+          <ul class="days">
+            <li>Sun</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+          </ul>
+          <ul class="dates"></ul>
+        </div>
+
+        <div class="tableScreen">
+          <a
+            href="https://docs.google.com/spreadsheets/d/1bfctEnviJxUOP1Q-9QpJ-qnpMO_zC_Rn-Pwgxvzy2vU/edit#gid=0"
+            target="_blank"
+          >
+            <button id="ggSheets">GO TO SHEET</button></a
+          >
+          <table id="data-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Alarm</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
@@ -187,15 +199,6 @@
       firebase.analytics();
     </script>
     <!-- Custom JS -->
-    <script src="./js/scripts1.js"></script>
-    <script>
-      function zoomIn(element) {
-  element.classList.add('zoomed'); // Thêm lớp 'zoomed' để phóng to
-}
-
- function zoomOut(element) {
-  element.classList.remove('zoomed'); // Loại bỏ lớp 'zoomed' để trở về kích thước ban đầu
-}
-    </script>
+    <script src="./js/script3.js"></script>
   </body>
 </html>

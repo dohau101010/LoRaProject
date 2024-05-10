@@ -68,7 +68,7 @@
         <div class="sidebar-title">
           <div class="sidebar-brand">
             <span class="material-icons-outlined">home</span>
-            <span class="brand_name">Lycoris Radiata</span>
+            <span class="brand_name">LORA PROJECT FOR SMART SYSTEM</span>
           </div>
         </div>
 
@@ -95,12 +95,14 @@
           </li>
           <li class="sidebar-list-item">
             <a href="./station 1.html">
-              <span class="material-icons-outlined">dashboard</span> LoRa Station 1
+              <span class="material-icons-outlined">dashboard</span> LoRa
+              Station 1
             </a>
           </li>
           <li class="sidebar-list-item">
             <a href="./station 2.html">
-              <span class="material-icons-outlined">dashboard</span> LoRa Station 2
+              <span class="material-icons-outlined">dashboard</span> LoRa
+              Station 2
             </a>
           </li>
           <li class="sidebar-list-item">
@@ -116,7 +118,13 @@
       <!-- SHOW THE SPECIFICATIONS OF THE WEATHER IN NUMBER -->
       <main class="main-container">
         <div class="main-title">
-          <p class="font-weight-bold">WELCOME TO OUR DASHBOARD</p>
+          <p class="font-weight-bold">WELCOME TO OUR LORA STATION 1</p>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1ErhyVOYc-n9dE45DrRVBfJuQr_qLCKU7TUsDWx2J4b8/edit?usp=drive_link"
+            target="_blank"
+          >
+            <button id="ggSheets">GO TO SHEET</button></a
+          >
           <div id="time">
             <script>
               function dongho() {
@@ -139,7 +147,7 @@
         <div class="main-cards">
           <div class="card">
             <div class="card-inner">
-              <p class="text-primary">TEMPERATURE</p>
+              <p class="text-primary" style="font-size: 21px">TEMPERATURE</p>
 
               <span class="material-symbols-outlined text-red">
                 device_thermostat
@@ -150,7 +158,7 @@
 
           <div class="card">
             <div class="card-inner">
-              <p class="text-primary">HUMIDITY</p>
+              <p class="text-primary" style="font-size: 21px">HUMIDITY</p>
               <span class="material-symbols-outlined text-orange"
                 >humidity_mid</span
               >
@@ -160,16 +168,16 @@
 
           <div class="card">
             <div class="card-inner">
-              <p class="text-primary">RAINFALL</p>
-              <span class="material-symbols-outlined text-green">rainy</span>
+              <p class="text-primary" style="font-size: 21px">DUST</p>
+              <span class="material-symbols-outlined"> cleaning_services </span>
             </div>
             <span class="text-primary font-weight-bold" id="rain">500</span>
           </div>
 
           <div class="card">
             <div class="card-inner">
-              <p class="text-primary">LIGHT</p>
-              <span class="material-symbols-outlined text-red">light_mode</span>
+              <p class="text-primary" style="font-size: 21px">CO GAS</p>
+              <span class="material-symbols-outlined"> masks </span>
             </div>
             <span class="text-primary font-weight-bold" id="light">85%</span>
           </div>
@@ -179,12 +187,12 @@
 
         <div class="charts">
           <div class="charts-card">
-            <p class="chart-title">Rainfall Nowadays</p>
+            <p class="chart-title">Dust & CO gas</p>
             <div id="bar-chart"></div>
           </div>
 
           <div class="charts-card">
-            <p class="chart-title">Temperature & Humidity Today</p>
+            <p class="chart-title">Temperature & Humidity</p>
             <div id="area-chart"></div>
           </div>
         </div>
@@ -201,20 +209,20 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
     <script>
       const firebaseConfig = {
-        apiKey: "AIzaSyCxpe8JFxwAXJaAa4wM7nKcUq65_tykKow",
-        authDomain: "iots-project.firebaseapp.com",
-        databaseURL: "https://iots-project-default-rtdb.firebaseio.com",
-        projectId: "iots-project",
-        storageBucket: "iots-project.appspot.com",
-        messagingSenderId: "453029774962",
-        appId: "1:453029774962:web:da2331f59dd6bdf3e3a4eb",
-        measurementId: "G-81L0QQ90F3",
+        apiKey: "AIzaSyAP5G-sGFyEJxKdTVrfnq2c7N14XYSwfIE",
+        authDomain: "he-thong-lora.firebaseapp.com",
+        databaseURL: "https://he-thong-lora-default-rtdb.firebaseio.com",
+        projectId: "he-thong-lora",
+        storageBucket: "he-thong-lora.appspot.com",
+        messagingSenderId: "85555223573",
+        appId: "1:85555223573:web:4923b0a40d462d3bb3021c",
+        measurementId: "G-3LED26R7F8",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
     <!-- Custom JS -->
-    <script src="./js/scripts.js"></script>
+    <script src="./js/scr_station1.js"></script>
   </body>
 </html>

@@ -12,22 +12,26 @@ const rangeInput3 = document.querySelector('.scrollable-range3');
 
 // Cập nhật giá trị hiển thị khi giá trị của thanh cuộn thay đổi
 rangeInput.addEventListener('input', function() {
-  firebase.database().ref('/Threshold/Tempt_th').set(this.value);
+  var value_Tempt = parseInt(this.value, 10);
+  firebase.database().ref('/Threshold/Tempt_th').set(value_Tempt);
   document.getElementById("scroll-value").innerHTML = this.value;
 });
 
 rangeInput1.addEventListener('input', function() {
-    firebase.database().ref('/Threshold/Humi_th').set(this.value);
+   var value_Humi = parseInt(this.value, 10);
+    firebase.database().ref('/Threshold/Humi_th').set(value_Humi);
     document.getElementById("scroll-value1").innerHTML = this.value;
   });
   
 rangeInput2.addEventListener('input', function() {
-    firebase.database().ref('/Threshold/Dust_th').set(this.value);
+   var value_Dust = parseInt(this.value, 10);
+    firebase.database().ref('/Threshold/Dust_th').set(value_Dust);
     document.getElementById("scroll-value2").innerHTML = this.value;
   });
   
 rangeInput3.addEventListener('input', function() {
-      firebase.database().ref('/Threshold/Bat_th').set(this.value);
+      var value_Bat = parseInt(this.value, 10);
+      firebase.database().ref('/Threshold/Bat_th').set(value_Bat);
       document.getElementById("scroll-value3").innerHTML = this.value;
     });
 

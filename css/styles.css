@@ -291,7 +291,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #4f35a1;
+  background-color: #4f4f4f;
   border-radius: 10px;
 }
 
@@ -427,3 +427,25 @@ input[type="checkbox"]:checked ~ .check::after {
 }
 
  
+
+
+#ggSheets {
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 4px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #6DC5D1;
+  margin-bottom: 5px;
+  position: relative;
+  top: 20px;
+  left: 120px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  cursor: pointer; /* Biến con trỏ thành dấu nhấp chuột khi di chuột qua nút */
+}
+
+#ggSheets:hover {
+  background-color: #f7dcb9; /* Màu nền thay đổi khi di chuột qua */
+  color: #00224d;
+}
